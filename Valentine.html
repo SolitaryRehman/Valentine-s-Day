@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Valentine ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", cursive;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ---------- Decorative Images ---------- */
+    .top-center {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    }
+
+
+    .top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px;
+    }
+
+    .hearts-top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 240px;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 310px;
+    }
+
+    /* ---------- Main Card ---------- */
+    .card {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    z-index: 2;
+
+    animation-delay: 0.5s;
+
+    margin-top: 60px; /* 👈 moves card downward */
+    }
+
+    .card.fade-in {
+    animation-delay: 0.6s;
+    }
+
+    img.fade-in {
+    animation-delay: 0.2s;
+    }
+
+    h1 {
+      color: #e6396f;
+      font-size: 36px;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      background: #ffb3d9;
+      border: 3px solid #b5179e;
+      color: #6a0572;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    #noBtn {
+    transition: left 0.25s ease, top 0.25s ease;
+    }
+
+
+    /* ---------- Page Load Animation ---------- */
+    .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1.4s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+    /* ---------- Hearts ---------- */
+    .heart {
+      position: fixed;
+      font-size: 24px;
+      animation: float 4s linear forwards;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Cat Couple (Top Center) -->
+    <img class="top-center fade-in"
+        src="cat_couple.png"
+        alt="Cat Couple">
+
+
+  <!-- 14 Feb Calendar (Top Left) -->
+    <img class="top-right fade-in"
+        src="14th_Feb.png"
+        alt="14 Feb">
+
+
+    <img class="hearts-top-left fade-in"
+        src="Many_hearts.png"
+        alt="Many Hearts">
+
+
+
+  <!-- Heart Box (Bottom Right) -->
+    <img class="bottom-right fade-in"
+        src="heart_box.png"
+        alt="Heart Box">
+
+  <!-- Pink Bow (Bottom Left) -->
+    <img class="bottom-left fade-in"
+        src="pink_bow_tie.png"
+        alt="Bow"> 
+
+  <!-- Main Content -->
+    <div class="card fade-in">
+    <h1>WILL YOU BE MY VALENTINE</h1>
+
+    <div class="buttons">
+      <button id="yesBtn">YES OFCOURSE</button>
+      <button id="noBtn">NO THANK YOU</button>
+    </div>
+  </div>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML =
+        "<h1 style='color:#e6396f; font-size:48px;'>YAYYYY 💖<br>You made my day 😍</h1>";
+      setInterval(createHeart, 250);
+    });
+
+    noBtn.addEventListener("mouseover", () => {
+    const padding = 20;
+
+    const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+    const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+    });
+
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * window.innerWidth + "px";
+      heart.style.bottom = "0px";
+      document.body.appendChild(heart);
+
+      setTimeout(() => heart.remove(), 4000);
+    }
+  </script>
+
+</body>
+</html>
