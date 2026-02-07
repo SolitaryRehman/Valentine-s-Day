@@ -1,3 +1,5 @@
+let heartInterval = null;
+
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 const card = document.querySelector(".card");
@@ -27,9 +29,19 @@ const introScreen = document.getElementById("introScreen");
 const yesScreen = document.getElementById("yesScreen");
 
 yesBtn.addEventListener("click", () => {
-  introScreen.style.display = "none";   // hides ALL pics + card
-  yesScreen.style.display = "block";    // shows new screen
-  setInterval(createHeart, 250);
+  introScreen.style.display = "none";
+
+  if (noBtn) {
+    noBtn.remove();
+  }
+
+  yesScreen.classList.remove("hidden");
+  yesScreen.classList.remove("fade-in"); // reset
+  void yesScreen.offsetWidth;            // force reflow
+  yesScreen.classList.add("fade-in");    // replay animation
+
+  heartInterval = setInterval(createHeart, 250);
+
 });
 
 
@@ -61,4 +73,22 @@ noBtn.addEventListener("mouseenter", () => {
 
   noBtn.classList.add(positionClasses[newRandomIndex]);
   lastPositionIndex = newRandomIndex; // Update last position
+});
+
+
+const giftBoxes = document.querySelectorAll(".gift-box");
+const gift1Screen = document.getElementById("gift1Screen");
+
+giftBoxes[0].addEventListener("click", () => {
+  yesScreen.style.display = "none";
+
+  if (heartInterval) {
+  clearInterval(heartInterval);
+  heartInterval = null;
+}
+
+  gift1Screen.classList.remove("hidden");
+  gift1Screen.classList.remove("fade-in");
+  void gift1Screen.offsetWidth;
+  gift1Screen.classList.add("fade-in");
 });
