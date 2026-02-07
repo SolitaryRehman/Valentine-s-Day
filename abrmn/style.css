@@ -1,0 +1,251 @@
+body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Segoe UI", cursive, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ---------- Decorative Images ---------- */
+    .top-center {
+    position: absolute;
+    top: 20px;
+    transform: translateX(-50%) translateX(-12px);
+    width: 20vw;
+    max-width: 280px;
+    }
+
+
+
+    .top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 15vw;
+    max-width: 200px;
+    }
+
+    .hearts-top-left {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 22vw;
+    max-width: 300px;
+    }
+
+    .bottom-right {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 18vw;
+      max-width: 240px;
+    }
+
+    .bottom-left {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      width: 23vw;
+      max-width: 310px;
+    }
+
+    /* ---------- Main Card ---------- */
+    .card {
+    background: white;
+    padding: 50px 60px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    z-index: 2;
+
+    /* move card upward */
+    margin-top: 130px;
+    }
+
+
+    .fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.4s ease-out forwards;
+}
+
+.hidden {
+  display: none;
+}
+
+
+
+    .card.fade-in {
+    animation-delay: 0.6s;
+    }
+
+    img.fade-in {
+    animation-delay: 0.2s;
+    }
+
+    h1 {
+      color: #e6396f;
+      font-size: 36px;
+      margin-bottom: 35px;
+      letter-spacing: 1px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 14px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      background: #ffb3d9;
+      border: 3px solid #b5179e;
+      color: #6a0572;
+      font-weight: bold;
+      transition: 0.3s;
+      box-sizing: border-box; /* Added for consistent sizing */
+    }
+
+    button:hover {
+      transform: scale(0.99);
+    }
+
+    #noBtn {
+    margin: 0; /* Ensures no default margin interferes */
+    transition: left 0.25s ease, top 0.25s ease, transform 0.25s ease; /* Transition left and top properties */
+    }
+
+    /* ---------- Position Classes for NO Button ---------- */
+    #noBtn.pos-1 { position: fixed; z-index: 1000; left: 50px; top: 50px; }
+    #noBtn.pos-2 { position: fixed; z-index: 1000; left: 50%; top: 50px; transform: translateX(-50%); }
+    #noBtn.pos-3 { position: fixed; z-index: 1000; right: 50px; top: 50px; }
+    #noBtn.pos-4 { position: fixed; z-index: 1000; left: 50px; top: 50%; transform: translateY(-50%); }
+    #noBtn.pos-5 { position: fixed; z-index: 1000; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    #noBtn.pos-6 { position: fixed; z-index: 1000; right: 50px; top: 50%; transform: translateY(-50%); }
+    #noBtn.pos-7 { position: fixed; z-index: 1000; left: 50px; bottom: 50px; }
+    #noBtn.pos-8 { position: fixed; z-index: 1000; left: 50%; bottom: 50px; transform: translateX(-50%); }
+    #noBtn.pos-9 { position: fixed; z-index: 1000; right: 50px; bottom: 50px; }
+    #noBtn.pos-10 { position: fixed; z-index: 1000; left: 100px; top: 100px; }
+    #noBtn.pos-11 { position: fixed; z-index: 1000; right: 100px; top: 100px; }
+    #noBtn.pos-12 { position: fixed; z-index: 1000; left: 100px; bottom: 100px; }
+    #noBtn.pos-13 { position: fixed; z-index: 1000; right: 100px; bottom: 100px; }
+    #noBtn.pos-14 { position: fixed; z-index: 1000; left: 25%; top: 30%; }
+    #noBtn.pos-15 { position: fixed; z-index: 1000; right: 25%; bottom: 30%; }
+
+
+    /* ---------- Page Load Animation ---------- */
+    .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1.4s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    }
+
+#yesBtn {
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* ---------- YES SCREEN ---------- */
+#yesScreen {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Yay text */
+.yay-text {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.yay-text h1 {
+  font-size: 48px;
+  color: #e6396f;
+}
+
+.yay-text p {
+  font-size: 22px;
+  color: #6a0572;
+  margin-top: 10px;
+}
+
+/* Corner images */
+.corner {
+  position: absolute;
+  width: 18vw;
+  max-width: 220px;
+}
+
+.corner.tl 
+{ top: 20px; left: 20px; max-width: 400px;}
+.corner.tr 
+{ top: 20px; right: 20px; }
+.corner.bl 
+{ bottom: 20px; left: 20px; }
+.corner.br 
+{ bottom: 20px; right: 20px; max-width: 500px;}
+
+/* Gifts section */
+.gifts {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  transform: translateY(-50%);
+}
+
+.gift-box {
+  width: 200px;
+  height: 130px;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: #e6396f;
+  border: 3px solid #b5179e;
+  transition: transform 0.3s;
+}
+
+.gift-box:hover {
+  transform: scale(1.08);
+}
+
+
+    /* ---------- Hearts ---------- */
+    .heart {
+      position: fixed;
+      font-size: 24px;
+      animation: float 4s linear forwards;
+    }
+
+    @keyframes float {
+      from {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      to {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
