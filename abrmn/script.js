@@ -82,13 +82,30 @@ const gift1Screen = document.getElementById("gift1Screen");
 giftBoxes[0].addEventListener("click", () => {
   yesScreen.style.display = "none";
 
+  // 🛑 Stop hearts
   if (heartInterval) {
-  clearInterval(heartInterval);
-  heartInterval = null;
-}
+    clearInterval(heartInterval);
+    heartInterval = null;
+  }
 
-  gift1Screen.classList.remove("hidden");
+  gift1Screen.style.display = "block";   // 🔑 THIS was missing
   gift1Screen.classList.remove("fade-in");
   void gift1Screen.offsetWidth;
   gift1Screen.classList.add("fade-in");
+});
+
+
+
+const backBtn = document.getElementById("backToYes");
+
+backBtn.addEventListener("click", () => {
+  gift1Screen.style.display = "none";
+
+  yesScreen.style.display = "block";
+  yesScreen.classList.remove("fade-in");
+  void yesScreen.offsetWidth;
+  yesScreen.classList.add("fade-in");
+
+  // 💖 Restart hearts
+  heartInterval = setInterval(createHeart, 250);
 });
