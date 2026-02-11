@@ -10,13 +10,28 @@
 <body>
 
 <!-- FIRST SCREEN -->
+
 <div id="introScreen">
 
-  <img class="top-center fade-in" src="cat_couple.png">
-  <img class="top-right fade-in" src="14th_Feb.png">
-  <img class="hearts-top-left fade-in" src="Many_hearts.png">
-  <img class="bottom-right fade-in" src="heart_box.png">
-  <img class="bottom-left fade-in" src="pink_bow_tie.png">
+  <div class="float-wrapper top-center">
+    <img class="fade-in" src="cat_couple.png">
+  </div>
+
+  <div class="float-wrapper top-right">
+    <img class="fade-in" src="14th_Feb.png">
+  </div>
+
+  <div class="float-wrapper hearts-top-left">
+    <img class="fade-in" src="Many_hearts.png">
+  </div>
+
+  <div class="float-wrapper bottom-right">
+    <img class="fade-in" src="heart_box.png">
+  </div>
+
+  <div class="float-wrapper bottom-left">
+    <img class="fade-in" src="pink_bow_tie.png">
+  </div>
 
   <div class="card fade-in">
     <h1>WILL YOU BE MY VALENTINE</h1>
@@ -26,7 +41,8 @@
     </div>
   </div>
 
-</div>
+</div> <!-- CLOSE introScreen -->
+
 
 <!-- SECOND SCREEN -->
 <div id="yesScreen" class="hidden fade-in">
@@ -39,10 +55,22 @@
   </div>
 
   <!-- Corner Images -->
-  <img class="corner tl fade-in" src="paper_heart_plane.png">
-  <img class="corner tr fade-in" src="real_heart_rose.png">
-  <img class="corner bl fade-in" src="heart_rose.png">
-  <img class="corner br fade-in" src="cat_heart_2.png">
+<div class="float-wrapper corner tl">
+  <img class="fade-in" src="paper_heart_plane.png">
+</div>
+
+<div class="float-wrapper corner tr">
+  <img class="fade-in" src="real_heart_rose.png">
+</div>
+
+<div class="float-wrapper corner bl">
+  <img class="fade-in" src="heart_rose.png">
+</div>
+
+<div class="float-wrapper corner br">
+  <img class="fade-in" src="cat_heart_2.png">
+</div>
+
 
   <!-- Gifts -->
   <div class="gifts">
@@ -57,12 +85,24 @@
   <!-- GIFT 1 SCREEN -->
 <div id="gift1Screen" class="hidden fade-in">
 
+  <a href="https://digibouquet.vercel.app/bouquet/bd8c3f6c-de93-4cfb-a2fe-10c913dedf89" 
+  target="_blank" 
+  class="another-link">
+  Another one
+</a>
+
+
   <h2 class="gift-title">Rose bouquet</h2>
 
   <div class="bouquet-wrapper">
 
     <img class="plant-panel" src="plant_panel.png">
     <img class="bouquet" src="rose_bouquet.png">
+
+<div class="float-wrapper cat-rose">
+  <img src="cat_rose.png">
+</div>
+
 
     <div class="note tl">I will always love you no matter what</div>
     <div class="note tr">I can't imagine a life without you</div>
@@ -74,6 +114,55 @@
   <button id="backToYes" class="back-btn fade-in">← Back</button>
 
 </div>
+
+
+<!-- GIFT 2 SCREEN -->
+<div id="gift2Screen" class="hidden fade-in">
+
+  <!-- Top text -->
+  <h2 class="gift2-title">A Letter From My Heart</h2>
+
+  <!-- Center paper area -->
+  <div class="letter-wrapper">
+    <img class="flower-panel" src="flower_panel.png">
+  </div>
+
+  <!-- Side images -->
+<div class="float-wrapper gift2-img left-img-1">
+  <img src="cat_heart_1.png">
+</div>
+
+<div class="float-wrapper gift2-img left-img-2">
+  <img src="cat_letter.png">
+</div>
+
+<div class="float-wrapper gift2-img right-img">
+  <img src="single_flower.png">
+</div>
+
+
+  <!-- Back button -->
+  <button id="backToYesFromGift2" class="back-btn fade-in">← Back</button>
+
+</div>
+
+
+
+<div id="gift3Screen" class="hidden fade-in">
+
+  <h2 class="gift3-title">Forever Yours </h2>
+
+  <button id="backToYesFromGift3" class="back-btn fade-in">← Back</button>
+
+</div>
+
+
+<audio id="bgMusic" preload="auto">
+  <source src="all_of_me.mp3" type="audio/mpeg">
+</audio>
+
+
+
 
 
 <script src="script.js"></script>

@@ -94,6 +94,39 @@ giftBoxes[0].addEventListener("click", () => {
   gift1Screen.classList.add("fade-in");
 });
 
+const gift2Screen = document.getElementById("gift2Screen");
+
+// Gift 2 click
+giftBoxes[1].addEventListener("click", () => {
+  yesScreen.style.display = "none";
+
+  // stop hearts
+  if (heartInterval) {
+    clearInterval(heartInterval);
+    heartInterval = null;
+  }
+
+  gift2Screen.style.display = "block";
+  gift2Screen.classList.remove("fade-in");
+  void gift2Screen.offsetWidth;
+  gift2Screen.classList.add("fade-in");
+});
+
+// Back from Gift 2
+const backToYesFromGift2 = document.getElementById("backToYesFromGift2");
+
+backToYesFromGift2.addEventListener("click", () => {
+  gift2Screen.style.display = "none";
+
+  yesScreen.style.display = "block";
+  yesScreen.classList.remove("fade-in");
+  void yesScreen.offsetWidth;
+  yesScreen.classList.add("fade-in");
+
+  // restart hearts
+  heartInterval = setInterval(createHeart, 250);
+});
+
 
 
 const backBtn = document.getElementById("backToYes");
@@ -109,3 +142,96 @@ backBtn.addEventListener("click", () => {
   // 💖 Restart hearts
   heartInterval = setInterval(createHeart, 250);
 });
+
+
+const gift3Screen = document.getElementById("gift3Screen");
+
+// Function to create big kiss
+function createKiss() {
+  const kiss = document.createElement("img");
+  kiss.src = "kiss.png";
+  kiss.classList.add("kiss");
+
+  document.body.appendChild(kiss);
+
+  kiss.style.left = Math.random() * 90 + "vw";
+  kiss.style.top = Math.random() * 90 + "vh";
+  kiss.style.width = Math.random() * 60 + 100 + "px";
+
+  setTimeout(() => {
+    kiss.remove();
+  }, 3500);
+}
+
+
+let kissInterval = null;
+
+// Gift 3 click
+giftBoxes[2].addEventListener("click", () => {
+  yesScreen.style.display = "none";
+
+  if (heartInterval) {
+    clearInterval(heartInterval);
+    heartInterval = null;
+  }
+
+  gift3Screen.style.display = "block";
+  gift3Screen.classList.remove("fade-in");
+  void gift3Screen.offsetWidth;
+  gift3Screen.classList.add("fade-in");
+
+  // Start romantic kiss rain
+  kissInterval = setInterval(createKiss, 400);
+});
+
+// Back from Gift 3
+const backToYesFromGift3 = document.getElementById("backToYesFromGift3");
+
+backToYesFromGift3.addEventListener("click", () => {
+  gift3Screen.style.display = "none";
+
+  yesScreen.style.display = "block";
+
+  yesScreen.classList.remove("fade-in");
+  void yesScreen.offsetWidth;
+  yesScreen.classList.add("fade-in");
+
+  // Stop kisses
+  if (kissInterval) {
+    clearInterval(kissInterval);
+    kissInterval = null;
+  }
+
+  // Restart hearts
+  heartInterval = setInterval(createHeart, 250);
+});
+
+
+const bgMusic = document.getElementById("bgMusic");
+
+// Set volume (not too loud)
+bgMusic.volume = 0.25; // 0.0 to 1.0 (25% volume)
+
+// Try autoplay when page loads
+window.addEventListener("load", () => {
+  playMusic();
+});
+
+// Function to play music safely
+function playMusic() {
+  bgMusic.play().catch(() => {
+    // If browser blocks autoplay,
+    // start on first user click
+    document.body.addEventListener("click", () => {
+      bgMusic.play();
+    }, { once: true });
+  });
+}
+
+// When music ends, wait 5 seconds then replay
+bgMusic.addEventListener("ended", () => {
+  setTimeout(() => {
+    bgMusic.play();
+  }, 5000); // 5 second delay
+});
+
