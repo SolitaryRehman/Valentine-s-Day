@@ -197,9 +197,9 @@ body {
 .corner.tr 
 { top: 20px; right: 20px; }
 .corner.bl 
-{ bottom: 20px; left: 20px; }
+{ bottom: 20px; left: 20px; max-width: 300px;}
 .corner.br 
-{ bottom: 20px; right: 20px; max-width: 500px;}
+{ bottom: 20px; right: 20px; max-width: 250px;}
 
 /* Gifts section */
 .gifts {
@@ -293,6 +293,16 @@ body {
   z-index: 4;
   animation: softFloat 4s ease-in-out infinite;
 }
+
+.cat-bouquet {
+  position: absolute;
+  top: -120px; /* slightly below the link */
+  right: -360px; /* aligned with the link */
+  width: 180px; /* adjust size as needed */
+  z-index: 10;
+  animation: softFloat 4s ease-in-out infinite; /* optional gentle floating effect */
+}
+
 
 @keyframes softFloat {
   0% { transform: translateY(0px); }
@@ -543,3 +553,5 @@ body {
 .left-img-1 { animation-delay: 0.4s; }
 .left-img-2 { animation-delay: 1s; }
 .right-img { animation-delay: 1.5s; }
+
+
