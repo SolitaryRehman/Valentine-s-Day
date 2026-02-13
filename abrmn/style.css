@@ -24,7 +24,7 @@ body {
 
     .top-right {
     position: absolute;
-    top: 20px;
+    top: 40px;
     right: 20px;
     width: 15vw;
     max-width: 200px;
@@ -533,7 +533,7 @@ body {
 
 @keyframes romanticFloat {
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-15px); }
+  50%  { transform: translateY(-25px); }
   100% { transform: translateY(0px); }
 }
 
